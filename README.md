@@ -1,5 +1,5 @@
 # svgomg
-Minimize svg and print data URI
+Minimize svg and print data URI. Requires node package manager (npm).
 
 ## Usage
 Save the code below to a file named *svgomg*. Make sure the script location is in your $PATH
