@@ -10,7 +10,7 @@ bash: /c/Users/johannes/bin:/mingw64/bin:/usr/local/bin:/usr/bin:/bin:/mingw64/b
 ```
 I put the script in my ~/bin directory.
 
-Call the script by using the following command:
+Call the script by using the following command anywhere:
 ```bash
 svgomg filename.svg
 ```
