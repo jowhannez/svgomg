@@ -23,26 +23,30 @@ The script generates a file with the same name, in the same directory, but with 
 ```bash
 #!/bin/sh
 
+# Add SVGO if it doesn't exist
 echo "Checking SVGO version:"
 if svgo -v ; then
   printf "\nSVGO is installed\n\n"
 else
-  printf "Installing svgo globally\n" && npm install -g svgo
+  printf "Installing svgo globally\n" && sudo npm install -g svgo
 fi
 
+# Add datauri if it doesn't exist
 echo "Checking datauri version:"
 if datauri ; then
   printf "\nDatauri is installed\n"
 else
-  printf "Installing datauri globally\n" && npm install -g datauri
+  printf "Installing datauri globally\n" && sudo npm install -g datauri-cli
 fi
 
+# Optimize the svg and print datauri
 old_name=$1
 find=".svg"
 replace=".min.svg"
 new_name=${old_name//$find/$replace}
 svgo $old_name -o $new_name && printf "\nData URI:\n\n" && datauri $new_name
 
+# Message out to user
 if test -f $new_name; then
   printf "\nNew file created: $new_name"
 else
