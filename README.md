@@ -23,20 +23,30 @@ The script generates a file with the same name, in the same directory, but with 
 ```bash
 #!/bin/sh
 
+# Add .npm-global if it doesn't exist
+#global_folder=$HOME"/.npm-global"
+#if !(test -d $global_folder); then
+#  mkdir $global_folder
+#fi
+
 # Add SVGO if it doesn't exist
 echo "Checking SVGO version:"
 if svgo -v ; then
   printf "\nSVGO is installed\n\n"
-else
+elif sudo; then
   printf "Installing svgo globally\n" && sudo npm install -g svgo
+else
+  printf "Installing svgo globally\n" && npm install -g svgo
 fi
 
 # Add datauri if it doesn't exist
 echo "Checking datauri version:"
 if datauri ; then
   printf "\nDatauri is installed\n"
-else
+elif sudo; then
   printf "Installing datauri globally\n" && sudo npm install -g datauri-cli
+else
+  printf "Installing datauri globally\n" && npm install -g datauri-cli
 fi
 
 # Optimize the svg and print datauri
