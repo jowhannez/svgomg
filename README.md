@@ -23,12 +23,6 @@ The script generates a file with the same name, in the same directory, but with 
 ```bash
 #!/bin/sh
 
-# Add .npm-global if it doesn't exist
-#global_folder=$HOME"/.npm-global"
-#if !(test -d $global_folder); then
-#  mkdir $global_folder
-#fi
-
 # Add SVGO if it doesn't exist
 echo "Checking SVGO version:"
 if svgo -v ; then
